@@ -1,25 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <title>Listagem de Jogos</title>
+
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+    />
 </head>
 <body>
+<div class="container">
+    <div class="d-flex align-items-center my-2">
+        <h1 class="mr-3">Listagem de Jogos</h1>
+        <a th:href="@{/games/create}" class="btn-primary p-2">Cadastrar Jogo</a>
+    </div>
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Descricao</th>
-                <th scope="col">Preco</th>
-                </tr >
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Preço</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="game : ${games}">
-                <td th:text ="${game.name}"></td>
-                <td th:text ="${game.description}"></td>
-                <td th:text ="${game.price}"></td>
-            </tr>
+        <tr th:each="game : ${games}">
+            <td scope="row" th:text="${game.name}"></td>
+            <td scope="row" th:text="${game.description}"></td>
+            <td scope="row" th:text="${game.price}"></td>
+            <td>
+                <a th:href="@{/games/edit/{id}(id=${game.id})}">Editar</a>
+            </td>
+            <td>
+                <a th:href="@{/games/delete/{id}(id=${game.id})}">Excluir</a>
+            </td>
+        </tr>
         </tbody>
     </table>
+</div>
 </body>
 </html>

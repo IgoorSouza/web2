@@ -12,7 +12,7 @@
 	<artifactId>games</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>games</name>
-	<description>Spring Boot Application for the Web Development II and Extension II disciplines.</description>
+	<description>Spring Boot Application for the Web Development II discipline.</description>
 	<url/>
 	<licenses>
 		<license/>

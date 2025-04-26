@@ -1,6 +1,5 @@
 package com.igorsouza.games.services;
 
-import com.igorsouza.games.dtos.NewGame;
 import com.igorsouza.games.exceptions.GameNotFoundException;
 import com.igorsouza.games.models.Game;
 import com.igorsouza.games.repositories.GamesRepository;
@@ -23,14 +22,8 @@ public class GamesServiceImpl implements GamesService {
     }
 
     @Override
-    public Game saveGame(NewGame newGame) {
-        Game game = Game.builder()
-                .name(newGame.getName())
-                .description(newGame.getDescription())
-                .price(newGame.getPrice())
-                .build();
-
-        return gamesRepository.save(game);
+    public void saveGame(Game game) {
+        gamesRepository.save(game);
     }
 
     @Override
@@ -38,7 +31,7 @@ public class GamesServiceImpl implements GamesService {
         Optional<Game> game = gamesRepository.findById(id);
 
         if (game.isEmpty()) {
-            throw new GameNotFoundException("Game with id" + id + " not found");
+            throw new GameNotFoundException();
         }
 
         return game.get();
@@ -49,7 +42,7 @@ public class GamesServiceImpl implements GamesService {
         boolean doesGameExist = gamesRepository.existsById(id);
 
         if (!doesGameExist) {
-            throw new GameNotFoundException("Game with id" + id + " not found");
+            throw new GameNotFoundException();
         }
 
         gamesRepository.deleteById(id);

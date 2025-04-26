@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GameControllerExceptionHandler {
 
      @ExceptionHandler(GameNotFoundException.class)
-     public ResponseEntity<String> handleGameNotFoundException(GameNotFoundException e) {
-         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+     public String handleGameNotFoundException(GameNotFoundException e) {
+         return "games/not-found";
      }
 }
