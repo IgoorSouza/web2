@@ -3,9 +3,11 @@ package com.igorsouza.games.controllers;
 import com.igorsouza.games.exceptions.GameNotFoundException;
 import com.igorsouza.games.models.Game;
 import com.igorsouza.games.services.GamesService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,7 +48,11 @@ public class GamesController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Game game) {
+    public String save(@ModelAttribute @Valid Game game, BindingResult result) {
+        if (result.hasErrors()) {
+            return "games/create";
+        }
+
         gamesService.saveGame(game);
         return "redirect:/games";
     }
