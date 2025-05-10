@@ -2,7 +2,7 @@ package com.igorsouza.games.controllers;
 
 import com.igorsouza.games.exceptions.GameNotFoundException;
 import com.igorsouza.games.models.Game;
-import com.igorsouza.games.services.GamesService;
+import com.igorsouza.games.services.games.GamesService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

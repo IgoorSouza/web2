@@ -1,4 +1,4 @@
-package com.igorsouza.games.services;
+package com.igorsouza.games.services.games;
 
 import com.igorsouza.games.exceptions.GameNotFoundException;
 import com.igorsouza.games.models.Game;

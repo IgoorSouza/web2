@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-<th:block th:replace="~{/games/fragments/head :: head('Editar Jogo')}"></th:block>
-<body>
-<th:block th:replace="~{/games/fragments/head :: header}"></th:block>
-<div class="container">
-    <h1>Editar Jogo</h1>
-    <form action="#" th:action="@{/games/save}" th:object="${game}" method="POST">
+  <th:block
+    th:replace="~{/games/fragments/head :: head('Editar Jogo')}"
+  ></th:block>
+  <body>
+    <th:block th:replace="~{/games/fragments/head :: header}"></th:block>
+    <div class="container">
+      <h1>Editar Jogo</h1>
+      <form
+        action="#"
+        th:action="@{/games/save}"
+        th:object="${game}"
+        method="POST"
+      >
         <input type="hidden" th:field="*{id}" />
 
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Nome:</label>
-            <div class="col-sm-10">
-                <input type="text" th:field="*{name}" class="form-control" id="name" name="name" placeholder="Digite o nome do jogo">
-            </div>
+          <label for="name" class="col-sm-2 col-form-label">Nome:</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              th:field="*{name}"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Digite o nome do jogo"
+            />
+          </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="description">Descrição:</label>
-            <div class="col-sm-10">
-                <textarea id="description" th:field="*{description}" class="form-control" name="description" rows="4" cols="50"></textarea>
-            </div>
+          <label class="col-sm-2 col-form-label" for="description"
+            >Descrição:</label
+          >
+          <div class="col-sm-10">
+            <textarea
+              id="description"
+              th:field="*{description}"
+              class="form-control"
+              name="description"
+              rows="4"
+              cols="50"
+            ></textarea>
+          </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label" for="price">Preço:</label>
-            <div class="col-sm-10">
-                <input type="number" th:field="*{price}" class="form-control" id="price" name="price" step="0.01"
-                       placeholder="Digite o preço do jogo" >
-            </div>
+          <label class="col-sm-2 col-form-label" for="price">Preço:</label>
+          <div class="col-sm-10">
+            <input
+              type="number"
+              th:field="*{price}"
+              class="form-control"
+              id="price"
+              name="price"
+              step="0.01"
+              placeholder="Digite o preço do jogo"
+            />
+          </div>
         </div>
         <button type="submit" class="btn btn-info col-2">Editar Jogo</button>
-    </form>
-</div>
-</body>
-<th:block th:replace="~{/games/fragments/footer :: footer}"></th:block>
+      </form>
+    </div>
+  </body>
+  <th:block th:replace="~{/games/fragments/footer :: footer}"></th:block>
 </html>

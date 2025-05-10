@@ -19,7 +19,7 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Size(min = 2, max = 50, message = "O nome deve conter pelo menos 3 e no máximo 50 caracteres")
+    @Size(min = 2, max = 50, message = "O nome deve conter pelo menos 2 e no máximo 50 caracteres")
     @NotBlank()
     @Column(name = "name", nullable = false)
     private String name;
