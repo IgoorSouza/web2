@@ -26,7 +26,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(requests -> requests
                         .requestMatchers("/home", "/users/register", "/users/save").permitAll()
-                        .requestMatchers("/games").hasAuthority("admin")
+                        .requestMatchers("/games/*").hasAuthority("admin")
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .defaultSuccessUrl("/", true))

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <title>Access Denied</title>
-  </head>
-  <body>
-    <h3>Você não tem permissão para acessar essa página.</h3>
-    <a th:href="@{/games}">Página Inicial</a>
-  </body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/games/fragments/head :: head('Acesso negado')}"></th:block>
+<body>
+<th:block th:replace="~{/games/fragments/head :: header}"></th:block>
+<div class="text-center">
+  <h1 class="display-1 text-danger">403</h1>
+  <p class="lead">Acesso Negado</p>
+  <p class="mb-4">Você não tem permissão para acessar este recurso.</p>
+  <div class="d-flex justify-content-center">
+    <a href="/" class="btn btn-primary mr-2">Ir para a Página Inicial</a>
+  </div>
+</div>
+</body>
 </html>

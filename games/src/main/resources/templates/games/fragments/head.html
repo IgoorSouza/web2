@@ -1,4 +1,4 @@
-<head th:fragment="head(title)">
+<head th:fragment="head(title)" xmlns:sec="http://www.w3.org/1999/xhtml">
   <meta charset="utf-8" />
   <title th:text="${title}"></title>
 
@@ -59,10 +59,14 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" th:href="@{/games}">Listar</a>
-            <a class="dropdown-item" th:href="@{/games/create}">Cadastrar</a>
+            <a sec:authorize="hasAuthority('admin')" class="dropdown-item" th:href="@{/games/create}">Cadastrar</a>
           </div>
         </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0" action="/logout" method="post">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <button type="submit" class="btn my-2 my-sm-0">Sair</button>
+      </form>
     </div>
   </div>
 </nav>

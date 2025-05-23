@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
   <th:block
     th:replace="~{/games/fragments/head :: head('Listagem de Jogos')}"
   ></th:block>
@@ -8,7 +8,9 @@
     <div class="container">
       <div class="d-flex align-items-center my-2">
         <h1 class="mr-3">Listagem de Jogos</h1>
-        <a th:href="@{/games/create}" class="btn-primary p-2">Cadastrar Jogo</a>
+        <a sec:authorize="hasAuthority('admin')" th:href="@{/games/create}" class="btn-primary p-2">
+          Cadastrar Jogo
+        </a>
       </div>
       <table class="table table-striped">
         <thead>
